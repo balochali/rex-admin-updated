@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import Orders from "@/component/orders";
+import Orders from "@/components/orders";
 
 const OrdersPage = () => {
   const { user } = useAuth();

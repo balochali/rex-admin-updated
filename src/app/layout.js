@@ -1,6 +1,6 @@
 /* eslint-disable react/react-in-jsx-scope */
 import "./globals.css";
-import SideBar from "@/component/sidebar";
+import SideBar from "@/components/sidebar";
 import { AuthProvider } from "@/context/AuthContext";
 
 export const metadata = {

@@ -3,7 +3,7 @@
 import React, { useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/context/AuthContext";
-import Products from "@/component/products";
+import Products from "@/components/products";
 
 const ProductsPage = () => {
   const { user } = useAuth();

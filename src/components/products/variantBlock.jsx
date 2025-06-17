@@ -2,9 +2,9 @@ import React from "react";
 import Image from "next/image";
 import { FiTrash2, FiImage } from "react-icons/fi";
 import SizeSelector from "./sizeSelector";
-import { sizeOptions } from "./types";
 
 const VariantBlock = ({ variant, index, setVariants }) => {
+  const sizeOptions = ["Small", "Medium", "Large", "XL"];
   const updateVariant = (updater) =>
     setVariants((prev) => {
       const next = [...prev];

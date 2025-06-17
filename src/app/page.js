@@ -1,10 +1,9 @@
-
-import Dashbaord from "@/component/dashboard";
+import Dashboard from "@/components/dashboard";
 
 export default function Home() {
   return (
     <div className="w-full h-screen flex">
-      <Dashbaord />
+      <Dashboard />
     </div>
   );
 }

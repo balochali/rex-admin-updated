@@ -4,11 +4,11 @@ import axios from "axios";
 import ProductImageUpload from "./productImageUpload";
 import SizeSelector from "./sizeSelector";
 import VariantSection from "./variantSection";
-import { sizeOptions } from "./types";
 import config from "../../libs/config.json";
 import { toast } from "react-toastify";
 
 const ProductForm = () => {
+  const sizeOptions = ["Small", "Medium", "Large", "XL"];
   /* ---------- MAIN FORM STATE ---------- */
   const [formData, setFormData] = useState({
     categoryId: "",
