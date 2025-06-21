@@ -24,12 +24,12 @@ const DashboardHeader = ({
   const customerTrendData = [50, 70, 90, 110, 130, newCustomers];
 
   return (
-    <div className="mb-8 font-sans">
+    <div className="font-sans">
       {/* Main Title */}
-      <h1 className="text-3xl font-light text-gray-800 mb-6">{title}</h1>
+      <h1 className="text-3xl font-light text-gray-800">{title}</h1>
 
       {/* Analytics Cards Grid */}
-      <div className="flex flex-wrap items-stretch gap-4 mb-6">
+      <div className="flex flex-wrap items-stretch gap-4 mt-2">
         {/* Products Card */}
         <div className="flex-1 min-w-[240px] bg-white border border-gray-100 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
           <div className="flex justify-between h-full">

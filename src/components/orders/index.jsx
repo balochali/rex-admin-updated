@@ -5,9 +5,11 @@ import React, { useEffect, useState } from "react";
 import OrdersTable from "./ordersTable";
 import axios from "axios";
 import config from "../../libs/config.json";
+import OrdersHeader from "./ordersHeader";
 
 const Orders = () => {
   const [orders, setOrders] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getOrders = async () => {
     const orders = await axios.get(`${config.BASE_URL}/api/orders`);
@@ -22,12 +24,8 @@ const Orders = () => {
 
   return (
     <>
-      <div className="w-full mt-16">
-        <p
-          className={`${ghetoshark.className} text-5xl uppercase font-bold mb-10 text-center`}
-        >
-          Orders
-        </p>
+      <div className="w-full mt-2">
+        <OrdersHeader orders={orders} loading={loading} />
         <OrdersTable orders={orders} />
       </div>
     </>

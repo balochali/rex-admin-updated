@@ -8,7 +8,6 @@ import Orders from "@/components/orders";
 const OrdersPage = () => {
   const { user } = useAuth();
   const router = useRouter();
-
   // Protect route
   useEffect(() => {
     if (user === null) {
@@ -20,7 +19,7 @@ const OrdersPage = () => {
   if (user === null) return null;
 
   return (
-    <div className="w-full h-screen flex">
+    <div className="w-full h-screen flex p-6">
       <Orders />
     </div>
   );

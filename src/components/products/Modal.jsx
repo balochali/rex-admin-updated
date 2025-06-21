@@ -120,7 +120,7 @@ export const Modal = ({ children, onClose, title, size = "md", isOpen }) => {
           {/* Modal content */}
           <motion.div
             ref={modalRef}
-            className={`relative bg-white rounded-xl shadow-xl w-full ${getSizeClasses()} max-h-[90vh] overflow-hidden border border-gray-100`}
+            className={`relative bg-white rounded-sm shadow-xl w-full ${getSizeClasses()} max-h-[90vh] overflow-hidden border border-gray-100`}
             variants={modalVariants}
             initial="hidden"
             animate="visible"

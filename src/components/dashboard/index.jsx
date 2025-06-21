@@ -3,7 +3,6 @@
 import React from "react";
 import DashboardHeader from "./DashboardHeader";
 import SalesChart from "./SalesChart";
-import DiscountButton from "./DiscountButton";
 import { useAuth } from "@/context/AuthContext";
 import { useRouter } from "next/navigation";
 import { satoshiMedium } from "@/libs/fonts";
@@ -19,13 +18,10 @@ const Dashboard = () => {
   return (
     <>
       {user ? (
-        <div className="p-12">
+        <div className="p-6 mt-4">
           <DashboardHeader title="Dashboard" />
-          <div className="mt-10">
+          <div className="mt-4 pb-4">
             <SalesChart />
-          </div>
-          <div className="mt-10">
-            <DiscountButton />
           </div>
         </div>
       ) : (
@@ -52,7 +48,6 @@ const Dashboard = () => {
           </div>
         </div>
       )}
-
     </>
   );
 };
