@@ -16,7 +16,7 @@ const OrdersHeader = ({ orders, loading }) => {
     return orders.reduce(
       (acc, order) => {
         acc.totalOrders++;
-        acc.totalRevenue += order.finalAmount || 0;
+        acc.totalRevenue += parseInt(order.finalAmount) || 0;
 
         switch (order.orderStatus) {
           case "ORDER_PLACED":

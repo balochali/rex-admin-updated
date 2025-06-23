@@ -8,12 +8,20 @@ import {
   FiXCircle,
   FiClock,
   FiTruck,
+  FiPhone,
 } from "react-icons/fi";
 import { satoshiMedium } from "@/libs/fonts";
 
 const OrdersTable = ({ orders }) => {
   // Handle both single order object and array of orders
   const ordersList = Array.isArray(orders) ? orders : orders ? [orders] : [];
+
+  const truncateText = (text, maxLength) => {
+    if (!text) return "";
+    return text.length > maxLength
+      ? `${text.substring(0, maxLength)}...`
+      : text;
+  };
 
   const getStatusBadge = (status) => {
     switch (status) {
@@ -50,7 +58,7 @@ const OrdersTable = ({ orders }) => {
   };
 
   return (
-    <div className={`${satoshiMedium.className} mt-8`}>
+    <div className={`${satoshiMedium.className} mt-8 pb-6`}>
       <div className="overflow-hidden shadow ring-1 ring-black ring-opacity-5 rounded-lg">
         <table className="min-w-full divide-y divide-gray-300">
           <thead className="bg-gray-50">
@@ -101,7 +109,7 @@ const OrdersTable = ({ orders }) => {
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             {ordersList.map((order) => (
-              <tr key={order.id} className="hover:bg-gray-50">
+              <tr key={order.id} className="hover:bg-gray-50 cursor-pointer">
                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                   <div className="flex items-center">
                     <FiPackage className="mr-2 text-gray-400" />
@@ -121,7 +129,9 @@ const OrdersTable = ({ orders }) => {
                             />
                           )}
                           <div>
-                            <p className="font-medium">{item.name}</p>
+                            <p className="font-medium">
+                              {truncateText(item.name, 15)}
+                            </p>
                             <div className="text-xs text-gray-500">
                               {item.color && <span>{item.color}</span>}
                               {item.size && <span> • {item.size}</span>}
@@ -134,12 +144,21 @@ const OrdersTable = ({ orders }) => {
                     "N/A"
                   )}
                 </td>
+                {console.log("Order Table", order)}
                 <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
                   <div className="flex items-center">
                     <FiUser className="mr-2 text-gray-400" />
                     <div>
-                      {order.firstName} {order.lastName}
-                      <div className="text-xs text-gray-500">{order.email}</div>
+                      {truncateText(`${order.firstName} ${order.lastName}`, 15)}
+                      <div className="text-xs text-gray-500">
+                        {order.email}
+                        {order.phone && (
+                          <div className="flex items-center mt-1">
+                            <FiPhone className="mr-1 text-xs" />
+                            {order.phone}
+                          </div>
+                        )}
+                      </div>
                     </div>
                   </div>
                 </td>
@@ -147,7 +166,7 @@ const OrdersTable = ({ orders }) => {
                   <div className="flex items-center">
                     <FiMapPin className="mr-2 text-gray-400" />
                     <div>
-                      {order.address}
+                      {truncateText(order.address, 30)}
                       <div className="text-xs text-gray-500">
                         {order.city && `${order.city}, `}
                         {order.country}
