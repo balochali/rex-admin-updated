@@ -54,17 +54,19 @@ const ProductToggleButton = ({
   setShowBundleForm,
 }) => {
   const [productCount, setProductCount] = useState(0);
+  const [bundleCount, setBundleCount] = useState(0);
 
   return (
     <>
       <ProductHeader
         productCount={productCount}
+        bundleCount={bundleCount}
         showForm={showForm}
         setShowForm={setShowForm}
         showBundleForm={showBundleForm}
         setShowBundleForm={setShowBundleForm}
       />
-      <ProductSlider setProductCount={setProductCount} />
+      <ProductSlider setProductCount={setProductCount} setBundleCount={setBundleCount} />
     </>
   );
 };

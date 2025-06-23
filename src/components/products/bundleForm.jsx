@@ -56,7 +56,6 @@ const BundleForm = () => {
         formData
       );
 
-      console.log("Result", response.data);
       toast.success("Bundle created successfully!");
       router.push("/bundles");
     } catch (error) {

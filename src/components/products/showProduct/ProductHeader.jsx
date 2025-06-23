@@ -2,6 +2,7 @@ import React from "react";
 
 const ProductHeader = ({
   productCount,
+  bundleCount,
   showForm,
   setShowForm,
   showBundleForm,
@@ -87,7 +88,7 @@ const ProductHeader = ({
               BUNDLES
             </p>
             <p className="text-4xl font-light text-gray-800 mb-2">
-              {0}
+              {bundleCount}
             </p>
             <div className="flex items-center text-gray-500 text-xs font-medium">
               <svg

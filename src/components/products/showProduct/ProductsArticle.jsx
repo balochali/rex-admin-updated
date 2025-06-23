@@ -5,12 +5,12 @@ import config from "../../../libs/config.json";
 import { useRouter } from "next/navigation";
 
 const ProductsArticle = ({ products }) => {
+
   const baseUrl = `${config.BASE_URL}/uploads/products`;
   const router = useRouter();
 
   const updatedImageUrl = () => {
     const relativeUrl = products?.images?.[0]?.url;
-    console.log("Relative URL", relativeUrl);
 
     if (!relativeUrl) return "/placeholder.jpg"; // Fallback image
 
@@ -26,9 +26,7 @@ const ProductsArticle = ({ products }) => {
   const updateForm = () => {
     router.push("/products/update");
   };
-
-  console.log("updatedImageUrl", updatedImageUrl());
-
+  
   return (
     <div
       className={`${satoshiMedium.className} group m-4 bg-white border border-gray-100 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 cursor-pointer`}
