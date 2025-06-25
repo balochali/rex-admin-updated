@@ -2,6 +2,7 @@
 import "./globals.css";
 import SideBar from "@/components/sidebar";
 import { AuthProvider } from "@/context/AuthContext";
+import { ProductProvider } from "@/context/ProductContext";
 
 export const metadata = {
   title: "REX - ADMIN",
@@ -12,12 +13,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <AuthProvider>
-          <main className="w-full h-screen flex">
-            <div className="w-1/4 border-r border-black">
-              <SideBar />
-            </div>
-            <div className="w-3/4 overflow-y-auto">{children}</div>
-          </main>
+          <ProductProvider>
+            <main className="w-full h-screen flex">
+              <div className="w-1/4 border-r border-black">
+                <SideBar />
+              </div>
+              <div className="w-3/4 overflow-y-auto">{children}</div>
+            </main>
+          </ProductProvider>
         </AuthProvider>
       </body>
     </html>

@@ -22,6 +22,7 @@ const Orders = () => {
     getOrders();
   }, []);
 
+  console.log("Orders", orders);
   return (
     <>
       <div className="w-full mt-2">

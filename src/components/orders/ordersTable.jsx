@@ -11,8 +11,10 @@ import {
   FiPhone,
 } from "react-icons/fi";
 import { satoshiMedium } from "@/libs/fonts";
+import { useRouter } from "next/navigation";
 
 const OrdersTable = ({ orders }) => {
+  const router = useRouter();
   // Handle both single order object and array of orders
   const ordersList = Array.isArray(orders) ? orders : orders ? [orders] : [];
 
@@ -55,6 +57,10 @@ const OrdersTable = ({ orders }) => {
           </span>
         );
     }
+  };
+
+  const handleRowClick = (orderNumber) => {
+    router.push(`/orders/${orderNumber}`);
   };
 
   return (
@@ -109,7 +115,11 @@ const OrdersTable = ({ orders }) => {
           </thead>
           <tbody className="divide-y divide-gray-200 bg-white">
             {ordersList.map((order) => (
-              <tr key={order.id} className="hover:bg-gray-50 cursor-pointer">
+              <tr
+                key={order.id}
+                className="hover:bg-gray-50 cursor-pointer"
+                onClick={() => handleRowClick(order.orderNumber)}
+              >
                 <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900 sm:pl-6">
                   <div className="flex items-center">
                     <FiPackage className="mr-2 text-gray-400" />
