@@ -39,7 +39,7 @@ const DashboardHeader = ({ title }) => {
 
   const pendingOrders = safeOrders.filter(
     (order) =>
-      order.orderStatus === "ORDER_PLACED" || order.paymentStatus === "PENDING"
+      order.orderStatus === "ORDER_PLACED"
   ).length;
 
   const averageOrderValue = totalOrders > 0 ? totalRevenue / totalOrders : 0;

@@ -9,7 +9,6 @@ import {
   FiClock,
   FiTruck,
   FiPhone,
-  FiDollarSign,
   FiCreditCard,
   FiHome,
   FiMail,
@@ -19,6 +18,8 @@ import {
 } from "react-icons/fi";
 import { satoshiMedium } from "@/libs/fonts";
 import Link from "next/link";
+import axios from "axios";
+import config from "@/libs/config";
 
 const OrderStatus = {
   ORDER_PLACED: "ORDER_PLACED",
@@ -48,20 +49,20 @@ const OrderDetailsByNumber = ({ order }) => {
     );
   }
 
-  
   const handleStatusUpdate = async (newStatus) => {
     setIsUpdating(true);
     try {
-      // Replace with your actual API call to update the order status
-      const response = await fetch(`/api/orders/${order.id}/status`, {
-        method: "PATCH",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ status: newStatus }),
-      });
+      const response = await axios.patch(
+        `${config.BASE_URL}/api/orders/${order.id}/status`,
+        { status: newStatus },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
-      if (response.ok) {
+      if (response.status === 200) {
         setCurrentStatus(newStatus);
       } else {
         console.error("Failed to update order status");
@@ -459,13 +460,13 @@ const getStatusButtonClass = (status) => {
 const getStatusButtonLabel = (status) => {
   switch (status) {
     case OrderStatus.ORDER_PLACED:
-      return "Mark as Order Placed";
-    case OrderStatus.PACKAGING:
       return "Mark as Packaging";
-    case OrderStatus.SHIPPED:
+    case OrderStatus.PACKAGING:
       return "Mark as Shipped";
+    case OrderStatus.SHIPPED:
+      return "Mark as Out for Devlivery";
     case OrderStatus.OUT_FOR_DELIVERY:
-      return "Mark as Out for Delivery";
+      return "Mark as Deliverd";
     case OrderStatus.DELIVERED:
       return "Mark as Delivered";
     case OrderStatus.CANCELLED:
