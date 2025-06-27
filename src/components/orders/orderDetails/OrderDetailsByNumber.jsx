@@ -460,13 +460,13 @@ const getStatusButtonClass = (status) => {
 const getStatusButtonLabel = (status) => {
   switch (status) {
     case OrderStatus.ORDER_PLACED:
-      return "Mark as Packaging";
+      return "Mark as Order Placed";
     case OrderStatus.PACKAGING:
-      return "Mark as Shipped";
+      return "Mark as Packaging";
     case OrderStatus.SHIPPED:
-      return "Mark as Out for Devlivery";
+      return "Mark as Shipped";
     case OrderStatus.OUT_FOR_DELIVERY:
-      return "Mark as Deliverd";
+      return "Mark as Out for Delivery";
     case OrderStatus.DELIVERED:
       return "Mark as Delivered";
     case OrderStatus.CANCELLED:
