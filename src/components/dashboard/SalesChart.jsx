@@ -165,7 +165,7 @@ const SalesChart = () => {
 
   return (
     <div
-      className={`w-full bg-white rounded-xl p-6 shadow-sm border border-gray-200 ${satoshiMedium.className}`}
+      className={`w-full bg-white rounded-xl p-6 shadow-sm border border-gray-200 ${satoshiMedium.className} text-black`}
     >
       <div className="flex justify-between items-center mb-6">
         <div>
