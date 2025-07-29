@@ -62,7 +62,7 @@ const CreateCouponForm = () => {
   };
 
   return (
-    <div className={`max-w-2xl p-2 bg-white ${satoshiMedium.className}`}>
+    <div className={`max-w-2xl p-2 bg-white ${satoshiMedium.className} text-black`}>
       {error && (
         <div className="mb-4 p-3 bg-red-50 text-red-600 rounded-lg text-sm">
           {error}
