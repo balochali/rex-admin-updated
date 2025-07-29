@@ -72,7 +72,7 @@ const Login = () => {
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className={`${aptos.className} border border-black p-2 text-sm w-[25rem] rounded-xs`}
+                className={`${aptos.className} border border-black p-2 text-sm w-[25rem] rounded-xs text-black`}
                 placeholder="Email"
               />
             </div>
@@ -83,13 +83,13 @@ const Login = () => {
                 value={formData.password}
                 onChange={handleChange}
                 onKeyDown={handleKeyDown}
-                className={`${aptos.className} border border-black p-2 text-sm w-[25rem] rounded-xs`}
+                className={`${aptos.className} border border-black p-2 text-sm w-[25rem] rounded-xs text-black`}
                 placeholder="Password"
               />
             </div>
             <div className="mt-4">
               <p
-                className={`${aptos.className} text-sm text-center transition-all duration-300 hover:tracking-wide cursor-pointer`}
+                className={`${aptos.className} text-sm text-center text-black transition-all duration-300 hover:tracking-wide cursor-pointer`}
               >
                 Forgot your password?
               </p>
@@ -101,18 +101,17 @@ const Login = () => {
                 className={`${aptos.className} p-2 text-sm bg-black text-white rounded-xs w-28 cursor-pointer duration-300 hover:tracking-widest hover:font-medium`}
               >
                 {loading ? (
-                   <div
+                  <div
                     className="inline-block h-4 w-4 animate-spin rounded-full border-2 border-dashed border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]"
                     role="status"
-                   >
+                  >
                     <span className="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">
                       Loading...
                     </span>
-                   </div>
+                  </div>
                 ) : (
-                   "Sign in"
+                  "Sign in"
                 )}
-
               </button>
             </div>
           </div>
@@ -145,9 +144,8 @@ const Login = () => {
           </div>
         </motion.div>
       )}
-
     </>
-  )
+  );
 };
 
 export default Login;

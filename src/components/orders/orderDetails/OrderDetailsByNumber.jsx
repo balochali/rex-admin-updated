@@ -231,7 +231,7 @@ const OrderDetailsByNumber = ({ order }) => {
         </div>
       )}
 
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 text-black">
         {/* Order Summary */}
         <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
           <h2 className="text-lg font-medium text-gray-900 mb-4 flex items-center">
