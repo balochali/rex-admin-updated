@@ -10,15 +10,15 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className="light" style={{ colorScheme: 'light' }}>
+      <body className="bg-white text-black" style={{ colorScheme: 'light' }}>
         <AuthProvider>
           <ProductProvider>
-            <main className="w-full h-screen flex">
-              <div className="w-1/4 border-r border-black">
+            <main className="w-full h-screen flex bg-white">
+              <div className="w-1/4 border-r border-black bg-white">
                 <SideBar />
               </div>
-              <div className="w-3/4 overflow-y-auto">{children}</div>
+              <div className="w-3/4 overflow-y-auto bg-white">{children}</div>
             </main>
           </ProductProvider>
         </AuthProvider>
